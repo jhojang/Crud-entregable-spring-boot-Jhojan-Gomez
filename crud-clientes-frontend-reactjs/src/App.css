@@ -1,38 +1,151 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background-color: rgb(167, 136, 231);
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  padding: 0;
+}
+
+h1 {
+  margin: 0;
+  padding: 10px;
+  font-size: 18px;
+  background-color: rgb(75, 48, 131);
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.global-container {
+  background-color: white;
+  box-shadow: 0 0 5px rgb(0, 0, 0);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* .table-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+} */
+
+table {
+  background-color: #fff;
+  border-spacing:0;
+  border: 1px solid rgb(227, 213, 255);
+  margin: 20px;
+  color:rgb(42, 25, 77);
 }
+
+
+th {
+  background-color: white;
+}
+
+td,
+th {
+  padding: 10px 100px 10px 10px;
+  text-align: left;
+  border: none;
+} 
+
+
+tr {
+}
+
+tr:nth-child(odd) {
+  background-color: rgb(236, 227, 255);
+}
+
+.btn-create {
+  background-color: rgb(75, 48, 131);
+  border: none;
+  margin: 0 20px 20px 20px;
+  cursor: pointer;
+  padding: 10px 10px;
+  color: white;
+  box-shadow: 0 0 3px rgb(75, 48, 131);
+  outline: none;
+}
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(37, 0, 138, 0.473);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  visibility: hidden;
+}
+
+.modal-form {
+  width: 30%;
+  margin: 0 auto;
+  padding: 0 40px 40px 40px;
+  background-color: #fff;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgb(161, 114, 255);
+  transition: transform 0.5s;
+  transform: translateY(-200%);
+}
+
+.modal-form-display {
+  transform: translateY(0%);
+}
+
+.modal-form > :first-child {
+}
+
+.modal-form > :first-child > h3 {
+  margin: 0 0 10px 0;
+  padding: 25px 0;
+  border-bottom: 2px solid rgb(227, 213, 255);
+  color: rgb(75, 48, 131);
+}
+
+.modal-form > :first-child > form {
+}
+
+.modal-form > :first-child > form > input {
+  width: 100%;
+  padding: 12px;
+  outline: none;
+  border: none;
+  box-shadow: 0 0 3px gray;
+  margin: 10px 0;
+}
+
+.modal-form > :first-child > form > input[type="text"] {
+  
+}
+
+.modal-form > :first-child > form > input[type="submit"] {
+  background-color: rgb(75, 48, 131);
+  box-shadow: 0 0 3px rgb(75, 48, 131);
+  color: white;
+  cursor: pointer;
+}
+
+.modal-form > :first-child > form > input[type="text"]:focus {
+  box-shadow: 0 0 5px rgb(75, 48, 131);
+}
+
+.btn-control {
+  background-color: rgb(75, 48, 131);
+  box-shadow: 0 0 3px rgb(75, 48, 131);
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 5px;
+  margin-right: 10px;
+}
+
+
+

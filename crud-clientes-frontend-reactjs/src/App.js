@@ -23,40 +23,61 @@ function App() {
       ...c,
       optionButton: "crear"
     }));
+    openModal();
   }
 
-  //comentario
+  const openModal = () => {
+    const modal_container = document.querySelector(".modal-container");
+    const modal_form = document.querySelector(".modal-form");
+    modal_container.style.visibility = "visible";
+    modal_form.classList.toggle("modal-form-display");
+  }
+
+  const closeModal = () => {
+    const modal_container = document.querySelector(".modal-container");
+    const modal_form = document.querySelector(".modal-form");
+    modal_container.style.visibility = "hidden";
+    modal_form.classList.toggle("modal-form-display");
+  }
 
   return (
     <>
-      <h1>Lista</h1>
-      <button onClick={handleNewClient}>Nuevo Cliente</button>
-      <ListTable
-        clientes={clientes}
-        handleDelete={handleDelete}
-        handleUpdate={handleUpdate}
-        setBanderaAndId={setBanderaAndId}
-      />
-      <div>
-        {banderaAndId.optionButton === "crear" && (
-          <FormCliente
-            client={banderaAndId.client}
-            titleComponent="Crear"
-            handleCreateOrUpdate={handleCreate}
-            setBanderaAndId={setBanderaAndId}
-          />
-        )}
-      </div>
-      <div>
-      {banderaAndId.optionButton === "editar" && (
-        <FormCliente
-          idClient={banderaAndId.idClient}
-          client={banderaAndId.client}
-          titleComponent="Editar"
-          handleCreateOrUpdate={handleUpdate}
+      <div className="global-container">
+        <h1>Lista de clientes</h1>
+        
+        <ListTable
+          clientes={clientes}
+          handleDelete={handleDelete}
+          handleUpdate={handleUpdate}
           setBanderaAndId={setBanderaAndId}
+          openModal={openModal}
         />
-      )}
+        <button onClick={handleNewClient} className="btn-create">Nuevo Cliente</button>
+        
+      </div>
+      <div 
+        className="modal-container"
+        onClick={closeModal}
+      >
+        <div className="modal-form">
+          {banderaAndId.optionButton === "crear" && (
+            <FormCliente
+              client={banderaAndId.client}
+              titleComponent="Añadir nuevo cliente"
+              handleCreateOrUpdate={handleCreate}
+              setBanderaAndId={setBanderaAndId}
+            />
+          )}
+          {banderaAndId.optionButton === "editar" && (
+            <FormCliente
+              idClient={banderaAndId.idClient}
+              client={banderaAndId.client}
+              titleComponent="Editar cliente"
+              handleCreateOrUpdate={handleUpdate}
+              setBanderaAndId={setBanderaAndId}
+            />
+          )}
+        </div>
       </div>
     </>
   );
