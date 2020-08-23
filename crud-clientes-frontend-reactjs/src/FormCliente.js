@@ -1,9 +1,13 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import { useFormChange } from './hooks/useFormChange';
 
 export const FormCliente = ({idClient=null, client, titleComponent, handleCreateOrUpdate, setBanderaAndId}) => {
 
-  const [inputValue, handleInputValue, handleInputReset] = useFormChange(client);
+  const [inputValue, handleInputValue, handleInputReset] = useFormChange();
+
+  useEffect(() => {
+    handleInputReset(client)
+  }, [client])
 
   const handleSubmit = (e) => {
     e.preventDefault();

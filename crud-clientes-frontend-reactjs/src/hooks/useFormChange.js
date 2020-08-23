@@ -1,8 +1,12 @@
 import { useState } from 'react'
 
-export const useFormChange = (client) => {
+export const useFormChange = () => {
     
-  const [inputValue, setInputValue] = useState(client);
+  const [inputValue, setInputValue] = useState({
+    nombre: "",
+    apellido: "",
+    email: ""
+  });
 
   const handleInputChange = ({target}) => {
     setInputValue({

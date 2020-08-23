@@ -8,7 +8,7 @@ import { helperOpenModal } from './helpers/helperOpenModal';
 
 function App() {
 
-  const [clientes, handleCreate, handleUpdate, handleDelete] = useFetchSpringBoot();
+  
 
   const [banderaAndId, setBanderaAndId] = useState({
     optionButton: null,
@@ -19,6 +19,8 @@ function App() {
       email: ""
     }
   });
+
+  const [clientes, handleCreate, handleUpdate, handleDelete] = useFetchSpringBoot();
 
   const handleNewClient = () => {
     setBanderaAndId((previosValue) => ({
