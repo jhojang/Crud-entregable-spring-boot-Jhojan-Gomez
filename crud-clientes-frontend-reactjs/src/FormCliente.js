@@ -13,8 +13,8 @@ export const FormCliente = ({idClient=null, client, titleComponent, handleCreate
       handleCreateOrUpdate(idClient, inputValue);
     }
     
-    setBanderaAndId((c) => ({
-      ...c,
+    setBanderaAndId((previosValue) => ({
+      ...previosValue,
       optionButton: null
     }));
   }

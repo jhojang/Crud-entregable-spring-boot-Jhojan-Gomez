@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const ListTable = ({clientes, handleDelete, setBanderaAndId, openModal}) => {
+export const ListTable = ({clientes, handleDelete, setBanderaAndId, helperOpenModal}) => {
 
   const handleFormCliente = (id, nombre, apellido, email) => {
     setBanderaAndId({
@@ -12,7 +12,7 @@ export const ListTable = ({clientes, handleDelete, setBanderaAndId, openModal}) 
         email: email
       }
     });
-    openModal();
+    helperOpenModal();
   }
 
   return (

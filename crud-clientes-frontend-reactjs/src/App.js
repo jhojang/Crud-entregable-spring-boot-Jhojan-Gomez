@@ -3,6 +3,8 @@ import './App.css';
 import { useFetchSpringBoot } from './hooks/useFetchSpringBoot';
 import { ListTable } from './ListTable';
 import { FormCliente } from './FormCliente';
+import { helperCloseModal } from './helpers/helperCloseModal';
+import { helperOpenModal } from './helpers/helperOpenModal';
 
 function App() {
 
@@ -19,26 +21,15 @@ function App() {
   });
 
   const handleNewClient = () => {
-    setBanderaAndId((c) => ({
-      ...c,
+    setBanderaAndId((previosValue) => ({
+      ...previosValue,
       optionButton: "crear"
     }));
-    openModal();
+    helperOpenModal(modal_container, modal_form);
   }
 
-  const openModal = () => {
-    const modal_container = document.querySelector(".modal-container");
-    const modal_form = document.querySelector(".modal-form");
-    modal_container.style.visibility = "visible";
-    modal_form.classList.toggle("modal-form-display");
-  }
-
-  const closeModal = () => {
-    const modal_container = document.querySelector(".modal-container");
-    const modal_form = document.querySelector(".modal-form");
-    modal_container.style.visibility = "hidden";
-    modal_form.classList.toggle("modal-form-display");
-  }
+  const modal_container = document.querySelector(".modal-container");
+  const modal_form = document.querySelector(".modal-form");
 
   return (
     <>
@@ -50,14 +41,18 @@ function App() {
           handleDelete={handleDelete}
           handleUpdate={handleUpdate}
           setBanderaAndId={setBanderaAndId}
-          openModal={openModal}
+          helperOpenModal={() => {
+            helperOpenModal(modal_container, modal_form);
+          }}
         />
         <button onClick={handleNewClient} className="btn-create">Nuevo Cliente</button>
         
       </div>
       <div 
         className="modal-container"
-        onClick={closeModal}
+        onClick={(e) => {
+          helperCloseModal(e, modal_container, modal_form, setBanderaAndId);
+        }}
       >
         <div className="modal-form">
           {banderaAndId.optionButton === "crear" && (
