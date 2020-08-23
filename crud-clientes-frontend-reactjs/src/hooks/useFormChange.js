@@ -11,10 +11,10 @@ export const useFormChange = (client) => {
     });
   }
 
-  // const handleInputEdit = (formData) => {
-  //   setInputValue(formData);
-  // }
+  const handleInputReset = (client) => {
+    setInputValue(client);
+  }
 
-  return [inputValue, handleInputChange];
+  return [inputValue, handleInputChange, handleInputReset];
 
 }

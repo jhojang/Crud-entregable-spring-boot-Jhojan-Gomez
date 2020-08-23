@@ -3,7 +3,7 @@ import { useFormChange } from './hooks/useFormChange';
 
 export const FormCliente = ({idClient=null, client, titleComponent, handleCreateOrUpdate, setBanderaAndId}) => {
 
-  const [inputValue, handleInputValue] = useFormChange(client);
+  const [inputValue, handleInputValue, handleInputReset] = useFormChange(client);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -13,10 +13,11 @@ export const FormCliente = ({idClient=null, client, titleComponent, handleCreate
       handleCreateOrUpdate(idClient, inputValue);
     }
     
-    setBanderaAndId((previosValue) => ({
-      ...previosValue,
-      optionButton: null
-    }));
+    handleInputReset({
+      nombre: "",
+      apellido: "",
+      email: ""
+    });
   }
 
   //comentario

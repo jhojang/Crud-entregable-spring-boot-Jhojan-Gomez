@@ -23,6 +23,7 @@ h1 {
 .global-container {
   background-color: white;
   box-shadow: 0 0 5px rgb(0, 0, 0);
+  
 }
 
 /* .table-container {
@@ -39,6 +40,8 @@ table {
   border: 1px solid rgb(227, 213, 255);
   margin: 20px;
   color:rgb(42, 25, 77);
+  max-width: 1000px;
+  min-width: 1000px;
 }
 
 
@@ -48,7 +51,7 @@ th {
 
 td,
 th {
-  padding: 10px 100px 10px 10px;
+  padding: 10px; 
   text-align: left;
   border: none;
 } 

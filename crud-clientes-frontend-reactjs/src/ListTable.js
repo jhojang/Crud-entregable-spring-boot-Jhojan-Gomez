@@ -23,7 +23,8 @@ export const ListTable = ({clientes, handleDelete, setBanderaAndId, helperOpenMo
             <th>ID</th>
             <th>Nombre</th>
             <th>Apellido</th>
-            <th>Eamil</th>
+            <th>Email</th>
+            <th>Fecha registro</th>
             <th>Control</th>
           </tr>
         </thead>
@@ -35,6 +36,7 @@ export const ListTable = ({clientes, handleDelete, setBanderaAndId, helperOpenMo
                 <td>{cliente.nombre}</td>
                 <td>{cliente.apellido}</td>
                 <td>{cliente.email}</td>
+                <td>{cliente.createAt}</td>
                 <td>
                   <button
                     className="btn-control"
